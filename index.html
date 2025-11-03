@@ -3,81 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lynara - Preventa Exclusiva</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+  <title>Lynara | Automatización Inteligente</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="scripts.js"></script>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0B132B;
-      color: #F6F7FB;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      text-align: center;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-    form {
-      background-color: #1C2541;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 420px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    input {
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      outline: none;
-    }
-    button {
-      background-color: #00E1B4;
-      color: #0B132B;
-      font-weight: bold;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    button:hover {
-      background-color: #00c9a3;
-    }
-    .footer {
-      margin-top: 1rem;
-      font-size: 0.9rem;
+    html {
+      scroll-behavior: smooth;
     }
   </style>
 </head>
+
 <body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Lynara</div>
+    <ul class="menu">
+      <li><a href="#preventa">Preventa</a></li>
+      <li><a href="#que-es">Qué es Lynara</a></li>
+      <li><a href="#utilidades">Utilidades</a></li>
+      <li><a href="#planes">Planes</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
 
-  <h1>Preventa Exclusiva de Lynara</h1>
-  <p>Apúntate y consigue un descuento de por vida antes del lanzamiento.</p>
+  <!-- Sección 1: Preventa -->
+  <section id="preventa" class="section">
+    <h1>Preventa Exclusiva de Lynara</h1>
+    <p>Apúntate y consigue un descuento de por vida antes del lanzamiento.</p>
+    <form id="preventaForm">
+      <input type="text" name="nombre" placeholder="Nombre completo" required>
+      <input type="text" name="empresa" placeholder="Empresa" required>
+      <input type="tel" name="telefono" placeholder="Teléfono" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <button type="submit">Apúntate a la Preventa y Consigue un Descuento de por Vida</button>
+    </form>
+    <p class="footer">Tus datos estarán seguros y solo se usarán para avisarte del lanzamiento.</p>
+  </section>
 
-  <form id="preventaForm">
-    <input type="text" name="nombre" placeholder="Nombre completo" required>
-    <input type="text" name="empresa" placeholder="Empresa" required>
-    <input type="tel" name="telefono" placeholder="Teléfono" required>
-    <input type="email" name="email" placeholder="Correo electrónico" required>
-    <input type="hidden" name="fecha_registro" id="fecha_registro">
-    <button type="submit">Apúntate a la Preventa y Consigue un Descuento de por Vida</button>
-  </form>
+  <!-- Sección 2: Qué es Lynara -->
+  <section id="que-es" class="section alt">
+    <h2>¿Qué es Lynara?</h2>
+    <p>Lynara es una plataforma de automatización inteligente diseñada para ahorrar tiempo y multiplicar tus resultados. 
+       Conecta WhatsApp, llamadas, correos y embudos de venta en un solo sistema IA, sin necesidad de conocimientos técnicos.</p>
+    <img src="https://via.placeholder.com/600x300" alt="Qué es Lynara">
+  </section>
 
-  <p class="footer">Tus datos estarán seguros y solo se usarán para avisarte del lanzamiento.</p>
+  <!-- Sección 3: Utilidades -->
+  <section id="utilidades" class="section">
+    <h2>Automatiza tu negocio en minutos</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>🤖 WhatsApp IA</h3>
+        <p>Responde, clasifica y agenda citas automáticamente con inteligencia artificial.</p>
+      </div>
+      <div class="feature">
+        <h3>📞 Llamadas Inteligentes</h3>
+        <p>Haz llamadas automáticas con voz natural para confirmar citas o contactar leads.</p>
+      </div>
+      <div class="feature">
+        <h3>📊 Embudos de Venta IA</h3>
+        <p>Activa campañas automáticas que califican clientes y envían seguimiento sin esfuerzo.</p>
+      </div>
+    </div>
+  </section>
 
-  <script src="scripts.js"></script>
+  <!-- Sección 4: Planes -->
+  <section id="planes" class="section alt">
+    <h2>Planes y Precios</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Connect</h3>
+        <p>Ideal para pequeñas empresas.</p>
+        <button onclick="window.location.href='#preventa'">Apúntate</button>
+      </div>
+      <div class="plan featured">
+        <h3>Business</h3>
+        <p>Incluye WhatsApp IA + Llamadas + Email Marketing.</p>
+        <button onclick="window.location.href='#preventa'">Apúntate</button>
+      </div>
+      <div class="plan">
+        <h3>Enterprise</h3>
+        <p>Todo el poder de Lynara con soporte prioritario y multicuenta.</p>
+        <button onclick="window.location.href='#preventa'">Apúntate</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 5: Contacto -->
+  <section id="contacto" class="section">
+    <h2>¿Tienes dudas o quieres una demo?</h2>
+    <p>Escríbenos y te ayudamos a configurar tu negocio con Lynara.</p>
+    <button onclick="window.open('https://wa.me/34606267848','_blank')">Contactar por WhatsApp</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <p>© 2025 Lynara. Todos los derechos reservados.</p>
+  </footer>
 </body>
 </html>
