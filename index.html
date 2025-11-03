@@ -101,54 +101,58 @@
   </section>
 
   <!-- PLANES Y PRECIOS -->
-  <section id="planes" class="section alt">
-    <h2>Planes y Precios</h2>
-    <p>Empieza con una prueba gratuita. Cancela cuando quieras durante el periodo de prueba.</p>
+  <section id="planes" class="section">
+  <h2>Planes y Precios</h2>
+  <p class="subtle">Empieza con una prueba gratuita. Cancela cuando quieras durante el periodo de prueba.</p>
 
-    <div class="plans">
-      <!-- CONNECT -->
-      <div class="plan">
-        <h3>Connect</h3>
-        <p style="min-height:72px;">Ideal para empezar a automatizar tu atención con IA.</p>
-        <ul style="text-align:left;max-width:260px;margin:10px auto 20px;color:#E1E6F0;">
-          <li>WhatsApp IA (respuesta y citas)</li>
-          <li>Seguimiento IA de no respuesta</li>
-          <li>Gestión básica de leads</li>
-        </ul>
-        <p style="margin:8px 0 16px;"><strong>Prueba gratis 7 días</strong></p>
-        <button onclick="window.location.href='#preventa'">Probar gratis</button>
-      </div>
-
-      <!-- BUSINESS (DESTACADO) -->
-      <div class="plan featured">
-        <h3>Business <span style="font-size:0.8rem;background:#00E1B4;color:#0B132B;padding:3px 8px;border-radius:6px;margin-left:6px;">Más popular</span></h3>
-        <p style="min-height:72px;">Automatización completa de comunicación y nurturing.</p>
-        <ul style="text-align:left;max-width:260px;margin:10px auto 20px;color:#E1E6F0;">
-          <li>WhatsApp IA + Seguimiento IA</li>
-          <li><strong>Correos IA</strong> (secuencias y respuestas)</li>
-          <li>Gestión de leads y reportes</li>
-          <li>Integraciones por webhook</li>
-          <li><em>Nota:</em> <strong>no</strong> incluye Llamadas IA</li>
-        </ul>
-        <p style="margin:8px 0 16px;"><strong>Prueba gratis 7 días</strong></p>
-        <button onclick="window.location.href='#preventa'">Probar gratis</button>
-      </div>
-
-      <!-- ENTERPRISE -->
-      <div class="plan">
-        <h3>Enterprise</h3>
-        <p style="min-height:72px;">Todo el poder de Lynara para escalar y convertir más.</p>
-        <ul style="text-align:left;max-width:260px;margin:10px auto 20px;color:#E1E6F0;">
-          <li>Todo lo de Business</li>
-          <li><strong>Llamadas IA</strong> con voz natural</li>
-          <li><strong>Embudo de Venta IA</strong> (captación → nurturing → cierre)</li>
-          <li>Soporte prioritario y multicuenta</li>
-        </ul>
-        <p style="margin:8px 0 16px;"><strong>Prueba gratis 10 días</strong></p>
-        <button onclick="window.location.href='#preventa'">Probar gratis</button>
-      </div>
+  <div class="pricing-grid">
+    <!-- CONNECT -->
+    <div class="card plan">
+      <h3>Connect</h3>
+      <p class="plan-note">Ideal para empezar a captar y organizar leads.</p>
+      <ul class="plan-list">
+        <li>Sin WhatsApp IA</li>
+        <li>Captación por formulario (preventa)</li>
+        <li><strong>Correos IA</strong> (confirmación + recordatorios)</li>
+        <li>Gestión básica de leads</li>
+        <li>Reporte semanal por email</li>
+      </ul>
+      <p class="trial">Prueba gratis 7 días</p>
+      <a href="#preventa" class="btn btn-primary">Probar gratis</a>
     </div>
-  </section>
+
+    <!-- BUSINESS -->
+    <div class="card plan plan-featured">
+      <div class="badge">Más popular</div>
+      <h3>Business</h3>
+      <p class="plan-note">Automatización completa de comunicación y nurturing.</p>
+      <ul class="plan-list">
+        <li>Todo lo de <strong>Connect</strong></li>
+        <li><strong>WhatsApp IA</strong> (respuesta, clasificación y citas)</li>
+        <li>Seguimiento IA de no respuesta</li>
+        <li><strong>Email Marketing</strong> (secuencias de nurturing)</li>
+        <li>Integraciones por webhook</li>
+        <li class="muted">No incluye Llamadas IA</li>
+      </ul>
+      <p class="trial">Prueba gratis 7 días</p>
+      <a href="#preventa" class="btn btn-primary">Probar gratis</a>
+    </div>
+
+    <!-- ENTERPRISE -->
+    <div class="card plan">
+      <h3>Enterprise</h3>
+      <p class="plan-note">Todo el poder de Lynara para escalar y convertir más.</p>
+      <ul class="plan-list">
+        <li>Todo lo de <strong>Business</strong></li>
+        <li><strong>Llamadas IA</strong> con voz natural</li>
+        <li><strong>Embudo de Venta IA</strong> (captación → nurturing → cierre)</li>
+        <li><strong>Multicuenta</strong> + soporte prioritario</li>
+      </ul>
+      <p class="trial">Prueba gratis 10 días</p>
+      <a href="#preventa" class="btn btn-primary">Probar gratis</a>
+    </div>
+  </div>
+</section>
 
   <!-- CONTACTO -->
   <section id="contacto" class="section">
