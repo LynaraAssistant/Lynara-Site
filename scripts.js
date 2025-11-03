@@ -1,32 +1,27 @@
-const FORM = document.getElementById('preventaForm');
-const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxmBPLrZs_n2PvRBYKABFq-v80FhMdjXTQ0TEzzu9l6rfC2NwRlTRFch_Ln4Qq3K1bu/exec';
+document.getElementById("preventaForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-FORM.addEventListener('submit', async (e) => {
-  e.preventDefault();
+  const form = e.target;
+  const data = {
+    nombre: form.nombre.value,
+    empresa: form.empresa.value,
+    telefono: form.telefono.value,
+    email: form.email.value
+  };
 
-  // Generar fecha automática
-  document.getElementById('fecha_registro').value = new Date().toLocaleString('sv-SE', {
-    timeZone: 'Europe/Madrid'
-  }).replace(' ', 'T');
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbxwN4Tp-YASn-BFzNixxHxGa5IzTHMrR-vmvY5Dz6Y3YLer3Lu-Vkb2QCPNTX5gLJg/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
 
-  const data = Object.fromEntries(new FormData(FORM).entries());
+    alert("✅ Registro enviado con éxito. Te avisaremos antes del lanzamiento.");
+    form.reset();
 
-  try {
-    const res = await fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-
-    const out = await res.json();
-
-    if (out.result === 'success') {
-      alert(' Registro completado. ¡Te contactaremos antes del lanzamiento!');
-      FORM.reset();
-    } else {
-      alert(' Error al registrar. Intenta de nuevo.');
-    }
-  } catch (err) {
-    alert(' Error de conexión. Intenta más tarde.');
-  }
+  } catch (error) {
+    alert("❌ Error de conexión. Intenta más tarde.");
+    console.error(error);
+  }
 });
