@@ -1,27 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lynara - Preventa Exclusiva</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=2.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lynara - Preventa Exclusiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0B132B;
+      color: #F6F7FB;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    form {
+      background-color: #1C2541;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+    button {
+      background-color: #00E1B4;
+      color: #0B132B;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #00c9a3;
+    }
+    .footer {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Preventa Exclusiva de Lynara</h1>
-  <p>Apúntate y consigue un descuento de por vida antes del lanzamiento.</p>
 
-  <form id="preventaForm">
-    <input type="text" name="nombre" placeholder="Nombre completo" required>
-    <input type="text" name="empresa" placeholder="Empresa" required>
-    <input type="tel" name="telefono" placeholder="Teléfono" required>
-    <input type="email" name="email" placeholder="Correo electrónico" required>
-    <input type="hidden" name="fecha_registro" id="fecha_registro">
-    <button type="submit">Apúntate a la Preventa y Consigue un Descuento de por Vida</button>
-  </form>
+  <h1>Preventa Exclusiva de Lynara</h1>
+  <p>Apúntate y consigue un descuento de por vida antes del lanzamiento.</p>
 
-  <p class="footer">Tus datos estarán seguros y solo se usarán para avisarte del lanzamiento.</p>
+  <form id="preventaForm">
+    <input type="text" name="nombre" placeholder="Nombre completo" required>
+    <input type="text" name="empresa" placeholder="Empresa" required>
+    <input type="tel" name="telefono" placeholder="Teléfono" required>
+    <input type="email" name="email" placeholder="Correo electrónico" required>
+    <input type="hidden" name="fecha_registro" id="fecha_registro">
+    <button type="submit">Apúntate a la Preventa y Consigue un Descuento de por Vida</button>
+  </form>
 
-  <script src="script.js"></script>
+  <p class="footer">Tus datos estarán seguros y solo se usarán para avisarte del lanzamiento.</p>
+
+  <script src="scripts.js"></script>
 </body>
 </html>
