@@ -115,46 +115,52 @@ body {
   margin: 0 auto;
 }
 
-/* --- Sección planes --- */
+/* --- Sección planes (versión final horizontal profesional) --- */
 .plans {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  padding: 4rem 3rem;
-  text-align: center;
+  padding: 5rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .plan {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 15px;
-  padding: 2rem;
-  transition: all 0.3s ease;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  transition: all 0.35s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  position: relative;
 }
 
 .plan:hover,
 .plan.active {
-  transform: translateY(-8px);
   border-color: #00E1B4;
-  box-shadow: 0 0 25px rgba(0, 225, 180, 0.4);
+  box-shadow: 0 0 25px rgba(0, 225, 180, 0.35);
+  transform: translateY(-8px);
 }
 
 .plan h3 {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #00E1B4;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .plan ul {
   list-style: none;
-  text-align: left;
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   margin-bottom: 1.5rem;
 }
 
 .plan ul li {
-  padding: 0.4rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
 .plan .price {
@@ -169,7 +175,7 @@ body {
   border: none;
   color: #0B132B;
   font-weight: 600;
-  padding: 0.7rem 1.5rem;
+  padding: 0.8rem 1.6rem;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -180,14 +186,17 @@ body {
   transform: scale(1.05);
 }
 
-/* --- Sección contacto / footer --- */
-footer {
-  text-align: center;
-  padding: 3rem 1rem;
-  background: rgba(11, 19, 43, 0.9);
-  color: #ccc;
-  font-size: 0.95rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+/* --- Adaptación para pantallas pequeñas --- */
+@media (max-width: 992px) {
+  .plans {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .plans {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- Responsividad --- */
