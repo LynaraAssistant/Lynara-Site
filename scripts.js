@@ -1,6 +1,6 @@
 /* =======================================
-   LYNARA scripts.js v3.6
-   Formulario + UX + animaciones suaves
+   LYNARA scripts.js v3.7
+   UX optimizada + scroll + avisos + preventa final
    ======================================= */
 
 // -------- FORMULARIO DE PREVENTA --------
@@ -15,20 +15,18 @@ document.getElementById("preventForm").addEventListener("submit", async (e) => {
     email: form.email.value.trim(),
   };
 
-  // Validación rápida
   if (!data.nombre || !data.empresa || !data.telefono || !data.email) {
     mostrarAviso("⚠️ Por favor, completa todos los campos.", "error");
     return;
   }
 
-  // Botón con estado de carga
   const btn = form.querySelector("button[type='submit']");
   const textoOriginal = btn.textContent;
   btn.disabled = true;
   btn.textContent = "Enviando...";
 
   try {
-    const response = await fetch(
+    await fetch(
       "https://script.google.com/macros/s/AKfycbwxM4Tp-YASN-BFzNixvok6aSziTHR-a-VnYS8D26YSLy8r3Lu-Vb2cPXNTj3K7fgt/exec",
       {
         method: "POST",
@@ -38,10 +36,8 @@ document.getElementById("preventForm").addEventListener("submit", async (e) => {
       }
     );
 
-    // Simula confirmación visual
     mostrarAviso("✅ Registro enviado con éxito. Te avisaremos antes del lanzamiento.", "ok");
     form.reset();
-
   } catch (error) {
     console.error(error);
     mostrarAviso("❌ Error de conexión. Inténtalo más tarde.", "error");
@@ -51,7 +47,7 @@ document.getElementById("preventForm").addEventListener("submit", async (e) => {
   }
 });
 
-// -------- FUNCIÓN DE AVISOS --------
+// -------- AVISOS VISUALES --------
 function mostrarAviso(mensaje, tipo = "ok") {
   let aviso = document.createElement("div");
   aviso.textContent = mensaje;
@@ -63,36 +59,44 @@ function mostrarAviso(mensaje, tipo = "ok") {
   setTimeout(() => aviso.remove(), 4000);
 }
 
-// -------- SCROLL SUAVE ENTRE SECCIONES --------
+// -------- SCROLL SUAVE --------
 document.querySelectorAll('a[href^="#"]').forEach((enlace) => {
   enlace.addEventListener("click", (e) => {
     const destino = document.querySelector(enlace.getAttribute("href"));
     if (destino) {
       e.preventDefault();
       window.scrollTo({
-        top: destino.offsetTop - 60,
+        top: destino.offsetTop - 70,
         behavior: "smooth",
       });
     }
   });
 });
 
-// -------- SELECCIÓN VISUAL DE PLAN --------
+// -------- SELECCIÓN DE PLAN --------
 const plans = document.querySelectorAll(".plan.card");
 plans.forEach((plan) => {
   plan.addEventListener("click", () => {
     plans.forEach((p) => p.classList.remove("active"));
     plan.classList.add("active");
   });
-  plan.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      plan.click();
+});
+
+// -------- BOTONES DE PLAN → FORMULARIO --------
+document.querySelectorAll(".plan button, .plan a").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const destino = document.getElementById("preventas");
+    if (destino) {
+      window.scrollTo({
+        top: destino.offsetTop - 80,
+        behavior: "smooth",
+      });
     }
   });
 });
 
-// -------- ESTILO DE AVISO --------
+// -------- ESTILO DE AVISOS --------
 const estiloAviso = document.createElement("style");
 estiloAviso.textContent = `
   .aviso {
