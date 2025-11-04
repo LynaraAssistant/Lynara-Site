@@ -177,6 +177,16 @@
         el.value = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
       }
     })();
+    <script>
+  // Selección animada de plan
+  const plans = document.querySelectorAll('.card.plan');
+  plans.forEach(plan => {
+    plan.addEventListener('click', () => {
+      plans.forEach(p => p.classList.remove('active'));
+      plan.classList.add('active');
+    });
+  });
+</script>
   </script>
 </body>
 </html>
