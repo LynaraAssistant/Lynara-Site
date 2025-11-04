@@ -2,42 +2,31 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lynara | Automatización Inteligente para Negocios</title>
-
-  <!-- SEO básico -->
   <meta name="description" content="Lynara automatiza WhatsApp, llamadas, correos y embudos de venta con IA. Prueba gratis 7/10 días según tu plan." />
   <link rel="icon" href="main/favicon.png" />
-
-  <!-- CSS principal -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Ajustes mínimos para evitar cortes de secciones -->
   <style>
     html { scroll-behavior: smooth; }
-    /* que los anclajes no queden tapados por la navbar */
     section { scroll-margin-top: 90px; }
   </style>
-
-  <!-- JS (si ya usas scripts.js para el formulario, mantenlo) -->
-  <script defer src="scripts.js"></script>
 </head>
 
 <body>
-  <!-- HERO / ENCABEZADO CON LOGO -->
+  <!-- ENCABEZADO -->
   <header class="hero" id="inicio">
     <nav class="navbar">
-      <div class="hamburger" onclick="toggleMenu()">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
       <div class="logo">
         <img src="main/logo-lynara.png" alt="Lynara" style="height:28px;vertical-align:middle;margin-right:8px;">
         <span>Lynara</span>
       </div>
-      <ul class="menu">
-        <li><a href="#preventa">Preventa</a></li>
+
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#preventas">Preventa</a></li>
         <li><a href="#que-es">Qué es Lynara</a></li>
         <li><a href="#automatizaciones">Automatizaciones</a></li>
         <li><a href="#planes">Planes</a></li>
@@ -49,145 +38,134 @@
       <img src="main/logo-lynara.png" alt="Logo Lynara" class="hero-logo">
       <h1>Automatiza tu negocio con IA</h1>
       <p>Conecta WhatsApp, llamadas, correos y embudos de venta en una sola plataforma inteligente.</p>
-      <a href="#preventa" class="cta-button">Apúntate a la preventa</a>
+      <a href="#preventas" class="cta-button">Apúntate a la preventa</a>
     </div>
   </header>
-<script>
-  function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active');
-  }
-</script>
+
   <!-- PREVENTA -->
-  <section id="preventa" class="section">
+  <section id="preventas" class="section">
     <h1>Preventa Exclusiva de Lynara</h1>
     <p>Apúntate y consigue un descuento de por vida antes del lanzamiento.</p>
 
-    <!-- Formulario: respeta los mismos name/ids que ya usas con Google Apps Script -->
-    <form id="preventaForm">
+    <form id="preventForm">
       <input type="text" name="nombre" placeholder="Nombre completo" required />
       <input type="text" name="empresa" placeholder="Empresa" required />
       <input type="tel" name="telefono" placeholder="Teléfono" required />
       <input type="email" name="email" placeholder="Correo electrónico" required />
-      <!-- Campo oculto para fecha de registro (lo rellena scripts.js si lo tienes) -->
-      <input type="hidden" name="fecha_registro" id="fecha_registro" />
-      <button type="submit">Apúntate a la Preventa y Consigue un Descuento de por Vida</button>
+      <button type="submit">Apúntate y consigue tu descuento</button>
     </form>
 
-    <p class="footer">Tus datos estarán seguros y solo se usarán para avisarte del lanzamiento.</p>
+    <p class="footer">Tus datos están seguros y solo se usarán para avisarte del lanzamiento.</p>
   </section>
 
   <!-- QUÉ ES LYNARA -->
   <section id="que-es" class="section alt">
     <h2>¿Qué es Lynara?</h2>
-    <p>
-      Lynara es una plataforma de automatización inteligente diseñada para ahorrar tiempo y multiplicar tus resultados.
-      Conecta WhatsApp, llamadas, correos y embudos de venta en un solo sistema IA, sin necesidad de conocimientos técnicos.
-    </p>
-    <img src="https://via.placeholder.com/900x420?text=Plataforma+Lynara+IA" alt="Plataforma Lynara IA" style="max-width:100%;border-radius:12px;margin-top:20px;">
+    <p>Lynara es una plataforma de automatización inteligente diseñada para ahorrar tiempo y multiplicar tus resultados.
+       Conecta WhatsApp, llamadas, correos y embudos de venta en un solo sistema IA, sin necesidad de conocimientos técnicos.</p>
   </section>
 
-  <!-- AUTOMATIZACIONES IA -->
+  <!-- AUTOMATIZACIONES -->
   <section id="automatizaciones" class="section">
-    <h2>Automatiza tu negocio en minutos</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>🤖 WhatsApp IA</h3>
-        <p>Responde, clasifica y agenda citas automáticamente con IA. Detección de intención y mensajes humanizados.</p>
+    <h2>Automatizaciones IA</h2>
+
+    <div class="feature">
+      <h3>💬 WhatsApp IA</h3>
+      <p>Responde, clasifica y agenda citas automáticamente con IA.</p>
+    </div>
+
+    <div class="feature">
+      <h3>📞 Llamadas Inteligentes</h3>
+      <p>IA con voz natural que confirma citas y recupera leads.</p>
+    </div>
+
+    <div class="feature">
+      <h3>📧 Correos IA</h3>
+      <p>Envíos automáticos y recordatorios según el interés del cliente.</p>
+    </div>
+
+    <div class="feature">
+      <h3>🧩 Embudo de Venta IA</h3>
+      <p>Captación → nurturing → cierre. <strong>Exclusivo Enterprise.</strong></p>
+    </div>
+  </section>
+
+  <!-- PLANES -->
+  <section id="planes" class="section">
+    <h2>Planes y Precios</h2>
+    <p class="subtle">Empieza con una prueba gratuita. Cancela cuando quieras durante el periodo de prueba.</p>
+
+    <div class="pricing-grid">
+      <!-- CONNECT -->
+      <div class="card plan" id="connect">
+        <h3>Connect</h3>
+        <p>Ideal para empezar a captar y organizar leads.</p>
+        <ul>
+          <li>Sin WhatsApp IA</li>
+          <li>Captación por formulario (preventa)</li>
+          <li><strong>Correos IA</strong> (confirmación + recordatorios)</li>
+          <li>Gestión básica de leads</li>
+          <li>Reporte semanal por email</li>
+        </ul>
+        <p><strong>Prueba gratis 7 días</strong></p>
+        <a href="#preventas" class="btn">Probar gratis</a>
       </div>
-      <div class="feature">
-        <h3>📞 Llamadas Inteligentes</h3>
-        <p>Voz natural para confirmar citas, recuperar leads y realizar encuestas de satisfacción.</p>
+
+      <!-- BUSINESS -->
+      <div class="card plan featured" id="business">
+        <div class="badge">Más popular</div>
+        <h3>Business</h3>
+        <p>Automatización completa de comunicación y nurturing.</p>
+        <ul>
+          <li>Todo lo de <strong>Connect</strong></li>
+          <li><strong>WhatsApp IA</strong> (respuesta, clasificación y citas)</li>
+          <li>Seguimiento IA de no respuesta</li>
+          <li><strong>Email Marketing</strong> (secuencias de nurturing)</li>
+          <li>Integraciones por webhook</li>
+          <li class="muted">No incluye llamadas IA</li>
+        </ul>
+        <p><strong>Prueba gratis 7 días</strong></p>
+        <a href="#preventas" class="btn btn-primary">Probar gratis</a>
       </div>
-      <div class="feature">
-        <h3>📧 Correos IA</h3>
-        <p>Secuencias de email y respuestas automáticas según la etapa del cliente y su interés.</p>
-      </div>
-      <div class="feature">
-        <h3>📊 Embudo de Venta IA</h3>
-        <p>Capta, clasifica y realiza nurturing automático hasta cerrar la venta. <strong>Exclusivo Enterprise</strong>.</p>
+
+      <!-- ENTERPRISE -->
+      <div class="card plan" id="enterprise">
+        <h3>Enterprise</h3>
+        <p>Todo el poder de Lynara para escalar y convertir más.</p>
+        <ul>
+          <li>Todo lo de <strong>Business</strong></li>
+          <li><strong>Llamadas IA</strong> con voz natural</li>
+          <li><strong>Embudo de Venta IA</strong> (captación → nurturing → cierre)</li>
+          <li><strong>Multicuenta</strong> + soporte prioritario</li>
+        </ul>
+        <p><strong>Prueba gratis 10 días</strong></p>
+        <a href="#preventas" class="btn btn-primary">Probar gratis</a>
       </div>
     </div>
   </section>
 
-  <!-- PLANES Y PRECIOS -->
-  <section id="planes" class="section">
-  <h2>Planes y Precios</h2>
-  <p class="subtle">Empieza con una prueba gratuita. Cancela cuando quieras durante el periodo de prueba.</p>
-
-  <div class="pricing-grid">
-    <!-- CONNECT -->
-    <div class="card plan">
-      <h3>Connect</h3>
-      <p class="plan-note">Ideal para empezar a captar y organizar leads.</p>
-      <ul class="plan-list">
-        <li>Sin WhatsApp IA</li>
-        <li>Captación por formulario (preventa)</li>
-        <li><strong>Correos IA</strong> (confirmación + recordatorios)</li>
-        <li>Gestión básica de leads</li>
-        <li>Reporte semanal por email</li>
-      </ul>
-      <p class="trial">Prueba gratis 7 días</p>
-      <a href="#preventa" class="btn btn-primary">Probar gratis</a>
-    </div>
-
-    <!-- BUSINESS -->
-    <div class="card plan plan-featured">
-      <div class="badge">Más popular</div>
-      <h3>Business</h3>
-      <p class="plan-note">Automatización completa de comunicación y nurturing.</p>
-      <ul class="plan-list">
-        <li>Todo lo de <strong>Connect</strong></li>
-        <li><strong>WhatsApp IA</strong> (respuesta, clasificación y citas)</li>
-        <li>Seguimiento IA de no respuesta</li>
-        <li><strong>Email Marketing</strong> (secuencias de nurturing)</li>
-        <li>Integraciones por webhook</li>
-        <li class="muted">No incluye Llamadas IA</li>
-      </ul>
-      <p class="trial">Prueba gratis 7 días</p>
-      <a href="#preventa" class="btn btn-primary">Probar gratis</a>
-    </div>
-
-    <!-- ENTERPRISE -->
-    <div class="card plan">
-      <h3>Enterprise</h3>
-      <p class="plan-note">Todo el poder de Lynara para escalar y convertir más.</p>
-      <ul class="plan-list">
-        <li>Todo lo de <strong>Business</strong></li>
-        <li><strong>Llamadas IA</strong> con voz natural</li>
-        <li><strong>Embudo de Venta IA</strong> (captación → nurturing → cierre)</li>
-        <li><strong>Multicuenta</strong> + soporte prioritario</li>
-      </ul>
-      <p class="trial">Prueba gratis 10 días</p>
-      <a href="#preventa" class="btn btn-primary">Probar gratis</a>
-    </div>
-  </div>
-</section>
   <!-- FOOTER -->
   <footer class="main-footer">
     <p>© 2025 Lynara. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- (Opcional) Autorrelleno de fecha registro si no lo hace scripts.js -->
+  <!-- JS -->
   <script>
-    (function(){
-      var el = document.getElementById('fecha_registro');
-      if (el) {
-        const d = new Date();
-        const pad = n => String(n).padStart(2,'0');
-        el.value = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
-      }
-    })();
-    <script>
-  // Selección animada de plan
-  const plans = document.querySelectorAll('.card.plan');
-  plans.forEach(plan => {
-    plan.addEventListener('click', () => {
-      plans.forEach(p => p.classList.remove('active'));
-      plan.classList.add('active');
+    // Menú hamburguesa
+    function toggleMenu() {
+      document.getElementById("nav-links").classList.toggle("active");
+    }
+
+    // Efecto selección de plan
+    const plans = document.querySelectorAll(".card.plan");
+    plans.forEach(plan => {
+      plan.addEventListener("click", () => {
+        plans.forEach(p => p.classList.remove("active"));
+        plan.classList.add("active");
+      });
     });
-  });
-</script>
   </script>
+
+  <script defer src="scripts.js"></script>
 </body>
 </html>
-<script defer src="scripts.js"></script>
