@@ -27,6 +27,11 @@
   <!-- HERO / ENCABEZADO CON LOGO -->
   <header class="hero" id="inicio">
     <nav class="navbar">
+      <div class="hamburger" onclick="toggleMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
       <div class="logo">
         <img src="main/logo-lynara.png" alt="Lynara" style="height:28px;vertical-align:middle;margin-right:8px;">
         <span>Lynara</span>
@@ -47,7 +52,11 @@
       <a href="#preventa" class="cta-button">Apúntate a la preventa</a>
     </div>
   </header>
-
+<script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  }
+</script>
   <!-- PREVENTA -->
   <section id="preventa" class="section">
     <h1>Preventa Exclusiva de Lynara</h1>
