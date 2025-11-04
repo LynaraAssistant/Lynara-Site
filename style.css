@@ -227,3 +227,71 @@ button:hover {
     width: 90%;
   }
 }
+/* NAV: que no se corte y haga wrap si falta espacio */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 0.75rem 1.25rem;
+  flex-wrap: wrap;           /* <- permite salto de línea */
+}
+.navbar .nav-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;           /* <- evita cortes en "Contacto" */
+}
+
+/* HERO: que no se corte el titular */
+.hero {
+  min-height: 80vh;          /* en vez de height fija */
+  padding-top: 6rem;         /* separa del navbar */
+  padding-bottom: 3.5rem;
+}
+
+/* Corregir doble “Lynara”: dejar uno solo; si usas logo+texto */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.brand img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+/* Pricing */
+.pricing-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 960px) {
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+
+.plan .plan-note { margin-top: .25rem; opacity: .85; }
+.plan .plan-list { margin: 1rem 0; }
+.plan .plan-list li { margin: .4rem 0; }
+.plan .plan-list li.muted { opacity: .6; font-style: italic; }
+.plan .trial { margin-bottom: .75rem; font-weight: 600; opacity: .9; }
+
+.plan-featured {
+  outline: 2px solid #00e1b4;
+  position: relative;
+}
+.plan-featured .badge {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background: #00e1b4;
+  color: #0b132b;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: .8rem;
+}
+
+/* Mejorar anclas para que el título no quede oculto bajo la navbar */
+.section { scroll-margin-top: 90px; }
