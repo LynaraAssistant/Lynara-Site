@@ -1,5 +1,5 @@
 /* ===========================
-   LYNARA STYLE v3.4
+   LYNARA STYLE v3.5
    Profesional, centrado, con animaciones y energía IA
    =========================== */
 
@@ -129,16 +129,18 @@ body {
 /* ---------- PLANES ---------- */
 .plans {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
   gap: 2.5rem;
   padding: 5rem 3rem;
   max-width: 1200px;
   margin: 0 auto 4rem;
-  justify-content: center;
-  align-items: start;
+  justify-items: center;
+  align-items: stretch;
 }
 
 .plan {
+  width: 100%;
+  max-width: 340px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
@@ -148,10 +150,10 @@ body {
   backdrop-filter: blur(12px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   position: relative;
+  overflow: hidden;
   opacity: 0;
   transform: translateY(40px);
   animation: fadeUp 0.8s ease forwards;
-  overflow: hidden;
 }
 
 .plan:nth-child(1) { animation-delay: 0.3s; }
@@ -173,7 +175,7 @@ body {
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
-          mask-composite: exclude;
+  mask-composite: exclude;
   animation: pulseGlow 4s linear infinite;
   opacity: 0.7;
 }
@@ -266,36 +268,13 @@ footer {
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 992px) {
+@media (max-width: 1100px) {
   .plans {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .navbar {
-    padding: 1rem 2rem;
-  }
-
-  .menu-toggle {
-    display: flex;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    background: rgba(11, 19, 43, 0.95);
-    border-radius: 8px;
-    padding: 1rem;
-  }
-
-  .nav-links.open {
-    display: flex;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 780px) {
   .plans {
     grid-template-columns: 1fr;
   }
