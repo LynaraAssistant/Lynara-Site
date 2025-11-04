@@ -1,63 +1,124 @@
-document.getElementById("preventaForm").addEventListener("submit", async function(e) {
+/* =======================================
+   LYNARA scripts.js v3.6
+   Formulario + UX + animaciones suaves
+   ======================================= */
+
+// -------- FORMULARIO DE PREVENTA --------
+document.getElementById("preventForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const form = e.target;
   const data = {
-    nombre: form.nombre.value,
-    empresa: form.empresa.value,
-    telefono: form.telefono.value,
-    email: form.email.value
+    nombre: form.nombre.value.trim(),
+    empresa: form.empresa.value.trim(),
+    telefono: form.telefono.value.trim(),
+    email: form.email.value.trim(),
   };
 
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxwN4Tp-YASn-BFzNixxHxGa5IzTHMrR-vmvY5Dz6Y3YLer3Lu-Vkb2QCPNTX5gLJg/exec", {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
+  // Validación rápida
+  if (!data.nombre || !data.empresa || !data.telefono || !data.email) {
+    mostrarAviso("⚠️ Por favor, completa todos los campos.", "error");
+    return;
+  }
 
-    alert("✅ Registro enviado con éxito. Te avisaremos antes del lanzamiento.");
+  // Botón con estado de carga
+  const btn = form.querySelector("button[type='submit']");
+  const textoOriginal = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "Enviando...";
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbwxM4Tp-YASN-BFzNixvok6aSziTHR-a-VnYS8D26YSLy8r3Lu-Vb2cPXNTj3K7fgt/exec",
+      {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      }
+    );
+
+    // Simula confirmación visual
+    mostrarAviso("✅ Registro enviado con éxito. Te avisaremos antes del lanzamiento.", "ok");
     form.reset();
 
   } catch (error) {
-    alert("❌ Error de conexión. Intenta más tarde.");
     console.error(error);
-  }
-});
-document.getElementById("preventaForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const data = {
-    nombre: form.nombre.value,
-    empresa: form.empresa.value,
-    telefono: form.telefono.value,
-    email: form.email.value,
-  };
-
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbwaMTp-YASN-BFzNixxok6aSziTHR-a-VmYS0D26Y5Ly8r3Lu-Vbz0CPNTXJeLxg/exec", {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-
-    alert("✅ Registro enviado con éxito. Te avisaremos antes del lanzamiento.");
-    form.reset();
-  } catch (error) {
-    alert("❌ Error de conexión. Intenta más tarde.");
-    console.error(error);
+    mostrarAviso("❌ Error de conexión. Inténtalo más tarde.", "error");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = textoOriginal;
   }
 });
 
+// -------- FUNCIÓN DE AVISOS --------
+function mostrarAviso(mensaje, tipo = "ok") {
+  let aviso = document.createElement("div");
+  aviso.textContent = mensaje;
+  aviso.className = `aviso ${tipo}`;
+  document.body.appendChild(aviso);
 
-// 🟩 Selección animada de plan
-const plans = document.querySelectorAll(".card.plan");
-plans.forEach(plan => {
-  plan.addEventListener("click", () => {
-    plans.forEach(p => p.classList.remove("active"));
-    plan.classList.add("active");
+  setTimeout(() => aviso.classList.add("visible"), 100);
+  setTimeout(() => aviso.classList.remove("visible"), 3500);
+  setTimeout(() => aviso.remove(), 4000);
+}
+
+// -------- SCROLL SUAVE ENTRE SECCIONES --------
+document.querySelectorAll('a[href^="#"]').forEach((enlace) => {
+  enlace.addEventListener("click", (e) => {
+    const destino = document.querySelector(enlace.getAttribute("href"));
+    if (destino) {
+      e.preventDefault();
+      window.scrollTo({
+        top: destino.offsetTop - 60,
+        behavior: "smooth",
+      });
+    }
   });
 });
+
+// -------- SELECCIÓN VISUAL DE PLAN --------
+const plans = document.querySelectorAll(".plan.card");
+plans.forEach((plan) => {
+  plan.addEventListener("click", () => {
+    plans.forEach((p) => p.classList.remove("active"));
+    plan.classList.add("active");
+  });
+  plan.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      plan.click();
+    }
+  });
+});
+
+// -------- ESTILO DE AVISO --------
+const estiloAviso = document.createElement("style");
+estiloAviso.textContent = `
+  .aviso {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: rgba(0, 225, 180, 0.1);
+    border: 1px solid rgba(0, 225, 180, 0.5);
+    color: #00e1b4;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 9999;
+  }
+  .aviso.error {
+    background: rgba(255, 80, 80, 0.1);
+    border-color: rgba(255, 80, 80, 0.5);
+    color: #ff7b7b;
+  }
+  .aviso.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+`;
+document.head.appendChild(estiloAviso);
