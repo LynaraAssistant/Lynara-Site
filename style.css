@@ -1,6 +1,6 @@
 /* ===========================
-   LYNARA STYLE v3.0
-   Corporativo + Tecnológico
+   LYNARA STYLE v3.4
+   Profesional, centrado, con animaciones y energía IA
    =========================== */
 
 /* ---------- RESET ---------- */
@@ -17,6 +17,9 @@ body {
   color: #f0f0f0;
   line-height: 1.6;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ---------- NAVBAR ---------- */
@@ -80,21 +83,30 @@ body {
 
 /* ---------- HERO ---------- */
 .hero {
-  margin-top: 90px;
+  margin-top: 120px;
   text-align: center;
   padding: 4rem 2rem;
   color: #fff;
+  max-width: 800px;
+  animation: fadeIn 1s ease-in-out;
 }
 
 .hero h1 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin-bottom: 1rem;
+  background: linear-gradient(90deg, #00e1b4, #00a2ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(0, 225, 180, 0.4);
 }
 
 .hero p {
-  max-width: 600px;
-  margin: 0 auto 1.5rem;
+  max-width: 650px;
+  margin: 0 auto 2rem;
   opacity: 0.9;
+  font-size: 1.1rem;
 }
 
 .hero a {
@@ -105,13 +117,13 @@ body {
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 225, 180, 0.3);
+  box-shadow: 0 0 20px rgba(0, 225, 180, 0.4);
 }
 
 .hero a:hover {
   background: #00ffa6;
-  box-shadow: 0 0 25px rgba(0, 225, 180, 0.6);
-  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(0, 225, 180, 0.8);
+  transform: scale(1.08);
 }
 
 /* ---------- PLANES ---------- */
@@ -121,38 +133,76 @@ body {
   gap: 2.5rem;
   padding: 5rem 3rem;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto 4rem;
+  justify-content: center;
+  align-items: start;
 }
 
 .plan {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 15px;
+  border-radius: 18px;
   padding: 2.5rem 2rem;
   text-align: center;
   transition: all 0.35s ease;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
   position: relative;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+  overflow: hidden;
+}
+
+.plan:nth-child(1) { animation-delay: 0.3s; }
+.plan:nth-child(2) { animation-delay: 0.6s; }
+.plan:nth-child(3) { animation-delay: 0.9s; }
+
+/* ---------- EFECTO DE ENERGÍA IA ---------- */
+.plan::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 2px;
+  background: linear-gradient(
+    130deg,
+    rgba(0, 225, 180, 0.8),
+    rgba(0, 162, 255, 0.6),
+    rgba(0, 225, 180, 0.8)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: pulseGlow 4s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.5; filter: blur(2px); }
+  50% { opacity: 1; filter: blur(4px); }
+  100% { opacity: 0.5; filter: blur(2px); }
 }
 
 .plan:hover,
 .plan.active {
   transform: translateY(-10px);
   border-color: #00e1b4;
-  box-shadow: 0 10px 30px rgba(0, 225, 180, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 225, 180, 0.5);
 }
 
 .plan h3 {
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
   color: #00e1b4;
+  text-shadow: 0 0 12px rgba(0, 225, 180, 0.4);
 }
 
 .plan p {
   opacity: 0.9;
   margin-bottom: 1.5rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-style: italic;
 }
 
 .plan ul {
@@ -163,9 +213,17 @@ body {
 }
 
 .plan ul li {
-  padding: 0.4rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   font-size: 0.95rem;
+  position: relative;
+}
+
+.plan ul li::before {
+  content: "✔";
+  color: #00e1b4;
+  margin-right: 10px;
+  font-size: 0.9rem;
 }
 
 .plan button {
@@ -173,27 +231,38 @@ body {
   color: #001328;
   font-weight: 600;
   border: none;
-  padding: 0.8rem 1.6rem;
+  padding: 0.9rem 1.8rem;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 12px rgba(0, 225, 180, 0.4);
+  box-shadow: 0 0 15px rgba(0, 225, 180, 0.4);
 }
 
 .plan button:hover {
   background: #00ffa6;
-  box-shadow: 0 0 25px rgba(0, 225, 180, 0.8);
-  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 225, 180, 0.8);
+  transform: scale(1.06);
 }
 
 /* ---------- FOOTER ---------- */
 footer {
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem;
   font-size: 0.85rem;
   color: #bfc7d1;
   background: rgba(11, 19, 43, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ---------- ANIMACIONES ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ---------- RESPONSIVE ---------- */
@@ -233,5 +302,9 @@ footer {
 
   .hero h1 {
     font-size: 2rem;
+  }
+
+  .hero {
+    padding: 3rem 1.5rem;
   }
 }
