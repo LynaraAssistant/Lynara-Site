@@ -1,373 +1,93 @@
-/* ---------------------------
-   ESTILOS GENERALES
---------------------------- */
-body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(180deg, #0B132B 0%, #1C2541 100%);
-  color: #F6F7FB;
+/* ===========================
+   LYNARA WEB STYLE (v2.0)
+   Profesional, adaptable y visual
+   =========================== */
+
+/* --- Reset general --- */
+* {
   margin: 0;
   padding: 0;
-  text-align: center;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+/* --- Fondo y estructura --- */
+body {
+  background: linear-gradient(135deg, #0B132B 0%, #1B263B 50%, #00E1B4 120%);
+  color: #fff;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  color: #F6F7FB;
-  margin-bottom: 1rem;
-}
-
-p {
-  color: #E1E6F0;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto 1.5rem;
-}
-
-/* ---------------------------
-   NAVBAR
---------------------------- */
+/* --- Navbar híbrido (azul + blur) --- */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(11, 19, 43, 0.95);
+  background: rgba(11, 19, 43, 0.85);
+  backdrop-filter: blur(6px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 1rem 3rem;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
 }
 
-.logo {
-  font-weight: bold;
-  font-size: 1.4rem;
+.navbar.scrolled {
+  background: rgba(11, 19, 43, 0.98);
+}
+
+.navbar h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
   color: #00E1B4;
   letter-spacing: 1px;
 }
 
-.menu {
-  list-style: none;
+/* --- Navbar links --- */
+.nav-links {
   display: flex;
-  gap: 25px;
-  margin: 0;
-  padding: 0;
+  gap: 2rem;
 }
 
-.menu li a {
+.nav-links a {
+  color: #fff;
   text-decoration: none;
-  color: #F6F7FB;
   font-weight: 500;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
-.menu li a:hover {
+.nav-links a:hover {
   color: #00E1B4;
 }
 
-/* ---------------------------
-   SECCIONES GENERALES
---------------------------- */
-.section {
-  padding: 100px 20px;
-  margin-top: 80px;
-}
-
-.section.alt {
-  background-color: #1C2541;
-}
-
-/* ---------------------------
-   FORMULARIO DE PREVENTA
---------------------------- */
-form {
-  background-color: #1C2541;
-  padding: 25px;
-  border-radius: 10px;
-  max-width: 400px;
-  margin: 20px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-input {
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  outline: none;
-  font-size: 1rem;
-}
-
-button {
-  background-color: #00E1B4;
+/* --- Botón preventa --- */
+.nav-cta {
+  background: #00E1B4;
   color: #0B132B;
-  font-weight: bold;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: transform 0.2s, background-color 0.3s;
+  padding: 0.6rem 1.3rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
-button:hover {
-  background-color: #00c093;
-  transform: translateY(-2px);
-}
-
-.footer {
-  font-size: 0.9rem;
-  margin-top: 10px;
-  color: #B0B6C5;
-}
-
-/* ---------------------------
-   UTILIDADES / FEATURES
---------------------------- */
-.features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.feature {
-  background-color: #1C2541;
-  padding: 25px;
-  border-radius: 10px;
-  width: 280px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
-}
-
-.feature:hover {
-  transform: translateY(-5px);
-}
-
-/* ---------------------------
-   PLANES
---------------------------- */
-.plans {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.plan {
-  background-color: #1C2541;
-  border-radius: 10px;
-  padding: 25px;
-  width: 280px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-}
-
-.plan.featured {
-  border: 2px solid #00E1B4;
+.nav-cta:hover {
+  background: #00ffd0;
   transform: scale(1.05);
 }
 
-/* ---------------------------
-   CONTACTO
---------------------------- */
-#contacto button {
-  background-color: #00E1B4;
-  color: #0B132B;
-  font-weight: bold;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  padding: 12px 20px;
-  cursor: pointer;
-  transition: transform 0.2s, background-color 0.3s;
-}
-
-#contacto button:hover {
-  background-color: #00c093;
-  transform: translateY(-2px);
-}
-
-/* ---------------------------
-   FOOTER FINAL
---------------------------- */
-.main-footer {
-  background-color: #0B132B;
-  padding: 15px;
-  font-size: 0.9rem;
-  color: #B0B6C5;
-  margin-top: 50px;
-}
-
-/* ---------------------------
-   RESPONSIVE
---------------------------- */
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    padding: 10px 0;
-  }
-
-  .menu {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-
-  .plans, .features {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  form {
-    width: 90%;
-  }
-}
-/* NAV: que no se corte y haga wrap si falta espacio */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.2rem;
-  padding: 0.75rem 1.25rem;
-  flex-wrap: wrap;           /* <- permite salto de línea */
-}
-.navbar .nav-links {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;           /* <- evita cortes en "Contacto" */
-}
-
-/* HERO: que no se corte el titular */
-.hero {
-  min-height: 80vh;          /* en vez de height fija */
-  padding-top: 6rem;         /* separa del navbar */
-  padding-bottom: 3.5rem;
-}
-
-/* Corregir doble “Lynara”: dejar uno solo; si usas logo+texto */
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.brand img {
-  height: 28px;
-  width: auto;
-  display: block;
-}
-
-/* Pricing */
-.pricing-grid {
-  display: grid;
-  gap: 1.25rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-@media (max-width: 960px) {
-  .pricing-grid { grid-template-columns: 1fr; }
-}
-
-.plan .plan-note { margin-top: .25rem; opacity: .85; }
-.plan .plan-list { margin: 1rem 0; }
-.plan .plan-list li { margin: .4rem 0; }
-.plan .plan-list li.muted { opacity: .6; font-style: italic; }
-.plan .trial { margin-bottom: .75rem; font-weight: 600; opacity: .9; }
-
-.plan-featured {
-  outline: 2px solid #00e1b4;
-  position: relative;
-}
-.plan-featured .badge {
-  position: absolute;
-  top: -10px;
-  left: 16px;
-  background: #00e1b4;
-  color: #0b132b;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 6px;
-  font-size: .8rem;
-}
-
-/* Mejorar anclas para que el título no quede oculto bajo la navbar */
-.section { scroll-margin-top: 90px; }
-/* --- Ajuste general de layout --- */
-body {
-  overflow-x: hidden; /* Evita cortes por ancho */
-}
-
-/* NAVBAR */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 0.75rem 2rem;
-  flex-wrap: wrap;
-}
-
-.navbar .nav-links {
-  display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
-}
-
-.brand img {
-  height: 32px;
-  width: auto;
-  margin-right: 0.5rem;
-}
-
-.brand span {
-  display: none; /* ← evita que aparezca “Lynara Lynara” duplicado */
-}
-
-/* HERO */
-.hero {
-  min-height: 85vh;
-  padding-top: 8rem;
-  padding-bottom: 4rem;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* PLANES */
-.section {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.pricing-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  max-width: 1100px;   /* centra todo */
-  margin: 0 auto;
-}
-
-.card.plan {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  padding: 1.75rem;
-  text-align: left;
-/* --- MENÚ HAMBURGUESA RESPONSIVE --- */
-.navbar {
-  position: relative;
-}
-
-.hamburger {
+/* --- Menú hamburguesa (móvil) --- */
+.menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
 }
 
-.hamburger span {
+.menu-toggle span {
   background: #fff;
   height: 3px;
   width: 25px;
@@ -375,47 +95,134 @@ body {
   border-radius: 2px;
 }
 
-/* Ocultar el menú en móvil hasta que se active */
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  transition: all 0.3s ease-in-out;
+/* --- Hero principal --- */
+.hero {
+  margin-top: 80px;
+  text-align: center;
+  padding: 7rem 2rem 5rem;
+  color: #fff;
 }
 
-@media (max-width: 900px) {
-  .hamburger {
-    display: flex;
+.hero h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- Sección planes --- */
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 4rem 3rem;
+  text-align: center;
+}
+
+.plan {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.plan:hover,
+.plan.active {
+  transform: translateY(-8px);
+  border-color: #00E1B4;
+  box-shadow: 0 0 25px rgba(0, 225, 180, 0.4);
+}
+
+.plan h3 {
+  font-size: 1.6rem;
+  color: #00E1B4;
+  margin-bottom: 0.8rem;
+}
+
+.plan ul {
+  list-style: none;
+  text-align: left;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.plan ul li {
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.plan .price {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 1.2rem 0;
+  color: #fff;
+}
+
+.plan button {
+  background: #00E1B4;
+  border: none;
+  color: #0B132B;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.plan button:hover {
+  background: #00ffd0;
+  transform: scale(1.05);
+}
+
+/* --- Sección contacto / footer --- */
+footer {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: rgba(11, 19, 43, 0.9);
+  color: #ccc;
+  font-size: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- Responsividad --- */
+@media (max-width: 992px) {
+  .plans {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;
-    right: 10px;
-    background-color: #111827;
-    padding: 1rem;
-    border-radius: 8px;
-    width: 180px;
+    top: 70px;
+    right: 0;
+    width: 200px;
+    background: rgba(11, 19, 43, 0.95);
+    padding: 1.5rem;
+    border-radius: 0 0 0 10px;
   }
 
-  .nav-links.active {
+  .nav-links.open {
+    display: flex;
+  }
+
+  .menu-toggle {
     display: flex;
   }
 }
-.card.plan:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 15px rgba(0, 255, 180, 0.3);
-}
 
-.card.plan.active {
-  border: 2px solid #00e1b4;
-  transform: translateY(-10px);
-  box-shadow: 0 0 25px rgba(0, 255, 180, 0.45);
-}
-.card.plan.active {
-  border: 2px solid #00E1B4;
-  transform: scale(1.03);
-  box-shadow: 0 0 12px rgba(0, 225, 180, 0.5);
-  transition: all 0.25s ease;
+@media (max-width: 600px) {
+  .plans {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h2 {
+    font-size: 2rem;
+  }
 }
