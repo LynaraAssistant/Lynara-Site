@@ -1,6 +1,6 @@
 /* ===========================
-   LYNARA STYLE v3.7
-   Profesional + IA + animaciones + layout optimizado
+   LYNARA STYLE v3.9
+   Profesional + IA + animaciones + layout optimizado (Automatizaciones 2x2 + botón alineado)
    =========================== */
 
 /* RESET */
@@ -84,29 +84,40 @@ h2{font-size:2rem;margin-bottom:18px}
   opacity:.95;
 }
 
-/* AUTOMATIZACIONES (2x2) */
+/* AUTOMATIZACIONES (2x2 centradas) */
 .features-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:22px;
-  max-width:1000px;
-  margin:24px auto 0;
+  grid-template-columns:repeat(2,1fr);
+  gap:26px;
+  max-width:850px;
+  margin:30px auto 0;
+  justify-content:center;
+  align-items:stretch;
 }
 .feature{
   background:rgba(255,255,255,.05);
   border:1px solid rgba(255,255,255,.08);
   border-radius:14px;
-  padding:22px;
+  padding:24px;
   text-align:left;
   box-shadow:0 8px 20px rgba(0,0,0,.22);
   transition:.25s;
+  min-height:160px;
 }
 .feature:hover{
   transform:translateY(-4px);
   box-shadow:0 14px 30px rgba(0,225,180,.25);
 }
-.feature h3{color:#00e1b4;margin-bottom:8px;font-size:1.3rem}
-.feature p{opacity:.95;line-height:1.6}
+.feature h3{
+  color:#00e1b4;
+  margin-bottom:8px;
+  font-size:1.25rem;
+}
+.feature p{
+  opacity:.95;
+  line-height:1.6;
+  font-size:.96rem;
+}
 
 /* PLANES */
 .plans{
@@ -160,10 +171,10 @@ h2{font-size:2rem;margin-bottom:18px}
   box-shadow:0 20px 38px rgba(0,225,180,.5);
 }
 
-/* FORMULARIO DE PREVENTA (ahora al final) */
+/* FORMULARIO DE PREVENTA (alineado) */
 #preventForm{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  grid-template-columns:repeat(5,1fr);
   gap:12px;
   max-width:950px;
   margin:26px auto 16px;
@@ -232,10 +243,13 @@ footer{
   .nav-links.open{display:flex}
   .menu-toggle{display:flex}
 }
+@media (max-width:920px){
+  #preventForm{grid-template-columns:repeat(2,1fr)}
+}
 @media (max-width:720px){
   .hero h1{font-size:2.1rem}
   .plans{flex-direction:column;align-items:center}
-  #preventForm{grid-template-columns:1fr 1fr}
+  .features-grid{grid-template-columns:1fr}
 }
 @media (max-width:520px){
   #preventForm{grid-template-columns:1fr}
